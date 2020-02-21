@@ -72,23 +72,29 @@ h1 {
 }
 
 #reset-btn{
-    color: red;
+    position: relative;
+    left: 30%;
+    top: 50px;
 }
 
+
 #reset-btn:hover{
-    background-color: red;
+    font-size: 25px;
     color: whitesmoke;
     box-shadow: 5px 10px black;
 }
 
 #submit-btn:hover{
-    background-color: green;
+    font-size: 25px;
     color: whitesmoke;
     box-shadow: 5px 10px black;
 }
 
 #submit-btn{
     color: green;
+    position: relative;
+    left: 30%;
+    top: 50px;
 }
 
 h4 {
@@ -115,11 +121,14 @@ h4 {
 
     text-align: center;
 }
-#results-container {
-    height: 220px;
+#results-container{
+    height: 280px;
     overflow: auto;
 }
 
+.white-text {
+    height: 400px;
+}
 
 .SearchImage {
     margin-left: 35%;
