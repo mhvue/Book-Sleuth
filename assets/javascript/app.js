@@ -20,6 +20,8 @@ $("#submit-btn").click(function(event) {
    }).then(function(response) {
 
     $("#results-container").empty();
+
+
           //for loop for results needs to be updated to limit response to 10 results and then needs to have a clear function as well as links to HTML added (this is not working yet)
 for(var i = 0; i < response.items.length; i++) {
     
@@ -27,7 +29,7 @@ for(var i = 0; i < response.items.length; i++) {
         var title = response.items[i].volumeInfo.title;
         var author = response.items[i].volumeInfo.authors;
         var date = response.items[i].volumeInfo.publishedDate;
-        //var descript = response.items[i].volumeInfo.description;
+        var descript = response.items[i].volumeInfo.description;
         //console.log(descript);
         var image = response.items[i].volumeInfo.imageLinks.smallThumbnail
 
@@ -36,10 +38,10 @@ for(var i = 0; i < response.items.length; i++) {
 
             //variable for results to HTML
         var yourResults = $("<h6>").html(
-        "Title: " + title + "<br>" +
-        "Author: " + author + "<br>" +
-        "Date: " + date + "<br>" //+
-        //Description: " + descript + "<br>" 
+        "<b>Title:  </b>" + title + "<br>" +
+        "<b>Author:  </b>" + author + "<br>" +
+        "<b>Date:  </b>" + date + "<br>" +
+        "<b>Description: </b>" + descript + "<br>" 
         );
         console.log(yourResults);
         //console.log(BookImg)
