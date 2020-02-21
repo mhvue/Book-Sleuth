@@ -15,6 +15,11 @@ form span, form label, th{
     background-color: #49868C;
 }
 
+.active {
+    font-size:18px;
+}
+
+
 .collapsible-header {
 
     background-color: #49868C;
@@ -109,4 +114,14 @@ h4 {
 #best-sellers-container {
 
     text-align: center;
+}
+#results-container {
+    height: 220px;
+    overflow: auto;
+}
+
+
+.SearchImage {
+    margin-left: 35%;
+   
 }

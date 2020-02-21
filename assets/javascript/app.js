@@ -88,7 +88,7 @@ $.ajax({
 
         //all the info to be display 
         var bestSellersInfo= $("<p>").html(
-            "Rank " + bookRating  + "<br>" + 
+            "<b>Rank " + bookRating  + "</b><br>" + 
             "Title: " + bookTitle + "<br>" + 
             "Author: " + bookAuth + "<br>"  +
             "Synopsis: " + bookSynp + "<br>" 
@@ -115,24 +115,12 @@ $.ajax({
         $(".infoDiv").hide()
         var attrShown= $(this).attr("id");
         console.log(attrShown);
-    
-        //  if(attrShown === "imgNum" + count) {
-        //     console.log("true");
         $("#showInfo"+ attrShown).show()
-        // $(".bookInfo").attr("style", "visibility:").attr("id")
-         
-       
-    });
-   
-   
-    
+        
+        
 
+    });
 
 }); 
-
-
-
-
-
 
 });
