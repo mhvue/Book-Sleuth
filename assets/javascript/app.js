@@ -9,26 +9,25 @@ $("#submit-btn").click(function(event) {
     var searchBook = $("#title-search").val().trim();
     var searchAuth = $("#author-search").val().trim();
     
-//form validation
+// //form validation
 function formEmpty() {
-    if(!searchBook){
+    if(!searchBook || !searchAuth){
         $("#title-search").css("background-color", "orange");
-    }
-    if(!searchAuth){
-        $("#title-search").css("background-color", "orange");
+        $("#author-search").css("background-color", "orange");
     }
     else{
         searchBooks();
     }
+
 };
 
 formEmpty();
 
-
+searchBooks();//need this here for the formEmpty (if) to work
 
 function searchBooks() {
 
-    $("#title-search").css("background-color", "");
+    $("#title-search", "#author-search").css("background-color", "");
         // Google Books URL
     var queryURL = "https://www.googleapis.com/books/v1/volumes?api_key=AIzaSyC_kBKxX1bOeYZ9z3Itd5x86QwbLL-uS_8&q=" + searchBook + searchAuth
      
