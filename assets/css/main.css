@@ -91,7 +91,6 @@ h1 {
 }
 
 #submit-btn{
-    color: green;
     position: relative;
     left: 30%;
     top: 50px;
@@ -104,8 +103,8 @@ h4 {
 
 #tagline {
 
-      text-align: center;
-      color: #f99603;
+    text-align: center;
+    color: #f99603;
       
 }
 
@@ -137,4 +136,6 @@ h4 {
 
 p{
     text-align: center;
+    color: white;
+    font-style: italic;
 }
