@@ -1,5 +1,5 @@
-
 $(document).ready(function(){
+
 
         // Submit function for search
 $("#submit-btn").click(function(event) {
@@ -8,7 +8,27 @@ $("#submit-btn").click(function(event) {
         // Variables for Search
     var searchBook = $("#title-search").val().trim();
     var searchAuth = $("#author-search").val().trim();
+    
+//form validation
+function formEmpty() {
+    if(!searchBook){
+        $("#title-search").css("background-color", "orange");
+    }
+    if(!searchAuth){
+        $("#title-search").css("background-color", "orange");
+    }
+    else{
+        searchBooks();
+    }
+};
 
+formEmpty();
+
+
+
+function searchBooks() {
+
+    $("#title-search").css("background-color", "");
         // Google Books URL
     var queryURL = "https://www.googleapis.com/books/v1/volumes?api_key=AIzaSyC_kBKxX1bOeYZ9z3Itd5x86QwbLL-uS_8&q=" + searchBook + searchAuth
      
@@ -54,7 +74,8 @@ for(var i = 0; i < response.items.length; i++) {
     
 };
 });
-});
+}});
+
 
 //NYT API
 var mvAPI = "XrPZZH0SkeXWEk4ExM3vIM4gh2neOKwv";
@@ -108,7 +129,6 @@ $.ajax({
    $("#showInfo" + count).hide();
     };//for loop close 
 
-    
 
 
 //creating on click for each book img to show info about book 
