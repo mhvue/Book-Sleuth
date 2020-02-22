@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
-
+$("#reset-btn").on("click", function() {
+    $("#title-search").css("background-color", "transparent");
+    $("#author-search").css("background-color", "transparent");
+});
+    
         // Submit function for search
 $("#submit-btn").click(function(event) {
     event.preventDefault();
@@ -11,9 +15,9 @@ $("#submit-btn").click(function(event) {
     
 // //form validation
 function formEmpty() {
-    if(!searchBook || !searchAuth){
-        $("#title-search").css("background-color", "orange");
-        $("#author-search").css("background-color", "orange");
+    if(!searchBook && !searchAuth){
+        $("#title-search").css({"background-color": "#f99603", "font-weight": "bold"});
+        $("#author-search").css({"background-color": "#f99603", "font-weight": "bold"});
     }
     else{
         searchBooks();
@@ -23,11 +27,13 @@ function formEmpty() {
 
 formEmpty();
 
-searchBooks();//need this here for the formEmpty (if) to work
+searchBooks();//need this here for the formEmpty (if) to work once user inputs a value
 
+
+//have to figure out to emptpy orange color background after form validation 
 function searchBooks() {
-
-    $("#title-search", "#author-search").css("background-color", "");
+   
+   
         // Google Books URL
     var queryURL = "https://www.googleapis.com/books/v1/volumes?api_key=AIzaSyC_kBKxX1bOeYZ9z3Itd5x86QwbLL-uS_8&q=" + searchBook + searchAuth
      
