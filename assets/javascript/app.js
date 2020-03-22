@@ -20,10 +20,10 @@ function formEmpty() {
         $("#author-search").css({"background-color": "#f99603", "font-weight": "bold"});
     }
     else if(!searchBook && $("#author-search").val().trim()){
-        $("#title-search, #author-search").css({"background-color": "#49868C"});
+        $("#title-search, #author-search").css("background-color", "transparent");
     }
     else if(!searchAuth && $("#title-search").val().trim()){
-        $("#author-search, #author-search").css({"background-color": "#49868C"});
+        $("#author-search, #author-search").css("background-color", "transparent");
     }
     else{
         searchBooks();
@@ -67,16 +67,21 @@ for(var i = 0; i < response.items.length; i++) {
             //variable for book IMG
         var bookImg = $("<img>").attr("src", image).addClass("SearchImage")
 
+        var addBtn = $("<button>");
+        addBtn.addClass("addBook");
+        addBtn.text("Add Book");
+        
+
             //variable for results to HTML
         var yourResults = $("<h6>").html(
         "<b>Title:  </b>" + title + "<br>" +
         "<b>Author:  </b>" + author + "<br>" +
         "<b>Date:  </b>" + date + "<br>" +
-        "<b>Description: </b>" + descript + "<br>" 
-        );
+        "<b>Description: </b>" + descript + "<br>").append(addBtn);
         console.log(yourResults);
         //console.log(BookImg)
-        
+
+       
             //sends results to results div       
     $("#results-container").append(bookImg, yourResults);
     
@@ -92,14 +97,14 @@ for(var i = 0; i < response.items.length; i++) {
 var mvAPI = "XrPZZH0SkeXWEk4ExM3vIM4gh2neOKwv";
 // // NYT testing API Key. the use of  "current" which means getting the latest list 
     var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=" + mvAPI;
-    console.log(queryURL);
+    // console.log(queryURL);
 
 
 $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(response) {
-    console.log(response);
+
 
     // console.log(response.results.books);//this gives list of all info of bestsellers in an array
     var bestsellers = response.results.books //storing bestsellers in a var
