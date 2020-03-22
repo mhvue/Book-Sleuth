@@ -113,9 +113,12 @@ h4 {
 }
 .bestSellersImg {
 
-    margin: 25px
+    margin: 25px;
+    cursor: pointer;
 
-      }
+}
+
+
 #best-sellers-container {
 
     text-align: center;

@@ -19,6 +19,12 @@ function formEmpty() {
         $("#title-search").css({"background-color": "#f99603", "font-weight": "bold"});
         $("#author-search").css({"background-color": "#f99603", "font-weight": "bold"});
     }
+    else if(!searchBook && $("#author-search").val().trim()){
+        $("#title-search, #author-search").css({"background-color": "#49868C"});
+    }
+    else if(!searchAuth && $("#title-search").val().trim()){
+        $("#author-search, #author-search").css({"background-color": "#49868C"});
+    }
     else{
         searchBooks();
     }
@@ -112,7 +118,7 @@ $.ajax({
         
         count++;
         //created Img tag for  bookImg
-        var booksImgHolder = $("<img>").attr("src",bookImg).attr("id", count).addClass("bestSellersImg").css({"width" : "100px"});
+        var booksImgHolder = $("<img>").attr("src",bookImg).attr("id", count).addClass("bestSellersImg").css("width", "100px");
 
         //all the info to be display 
         var bestSellersInfo= $("<p>").html(
@@ -124,14 +130,14 @@ $.ajax({
            
          
 
-       //displaying on html
-       $("#best-sellers-container").append(booksImgHolder);
+        //displaying on html
+        $("#best-sellers-container").append(booksImgHolder);
 
-       var infoDiv= $("<div>");
-    infoDiv.html(bestSellersInfo).attr("id", "showInfo"+ count);
-    $("#best-sellers-container").append(infoDiv);
-    $(infoDiv).addClass("infoDiv");
-   $("#showInfo" + count).hide();
+        var infoDiv = $("<div>");
+        infoDiv.html(bestSellersInfo).attr("id", "showInfo" + count);
+        $("#best-sellers-container").append(infoDiv);
+        $(infoDiv).addClass("infoDiv").attr("data-hid","hidden");
+        $("#showInfo" + count).hide();
     };//for loop close 
 
 
@@ -142,12 +148,15 @@ $.ajax({
         $(".infoDiv").hide()
         var attrShown= $(this).attr("id");
         console.log(attrShown);
-        $("#showInfo"+ attrShown).show()
+        $("#showInfo"+ attrShown).show();
         
         
-
     });
 
 }); 
+
+
+
+
 
 });
