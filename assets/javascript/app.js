@@ -161,7 +161,10 @@ $.ajax({
 }); 
 
 
-
+//adding to Reading List 
+$(".addBook").on("click", function(){
+    console.log("click")
+});
 
 
 });
