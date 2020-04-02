@@ -1,10 +1,13 @@
 $(document).ready(function(){
 
+    //reset button
 $("#reset-btn").on("click", function() {
     $("#title-search").css("background-color", "transparent");
     $("#author-search").css("background-color", "transparent");
+    $("#results-container").empty();
 });
-    
+
+
         // Submit function for search
 $("#submit-btn").click(function(event) {
     event.preventDefault();
@@ -13,7 +16,7 @@ $("#submit-btn").click(function(event) {
     var searchBook = $("#title-search").val().trim();
     var searchAuth = $("#author-search").val().trim();
     
-// //form validation
+//form validation
 function formEmpty() {
     if(!searchBook && !searchAuth){
         $("#title-search").css({"background-color": "#f99603", "font-weight": "bold"});
@@ -36,10 +39,7 @@ formEmpty();
 searchBooks();//need this here for the formEmpty (if) to work once user inputs a value
 
 
-//have to figure out to emptpy orange color background after form validation 
 function searchBooks() {
-   
-   
         // Google Books URL
     var queryURL = "https://www.googleapis.com/books/v1/volumes?api_key=AIzaSyC_kBKxX1bOeYZ9z3Itd5x86QwbLL-uS_8&q=" + searchBook + searchAuth
      
@@ -50,54 +50,81 @@ function searchBooks() {
         method: "GET"
    }).then(function(response) {
 
-    $("#results-container").empty();
+        $("#results-container").empty();
 
-
+        var count = 0;
           //for loop for results needs to be updated to limit response to 10 results and then needs to have a clear function as well as links to HTML added (this is not working yet)
-for(var i = 0; i < response.items.length; i++) {
+        for(var i = 0; i < response.items.length; i++) {
     
-          //Variables for results
-        var title = response.items[i].volumeInfo.title;
-        var author = response.items[i].volumeInfo.authors;
-        var date = response.items[i].volumeInfo.publishedDate;
-        var descript = response.items[i].volumeInfo.description;
-        //console.log(descript);
-        var image = response.items[i].volumeInfo.imageLinks.smallThumbnail
+            //Variables for results
+            var title = response.items[i].volumeInfo.title;
+            var author = response.items[i].volumeInfo.authors;
+            var date = response.items[i].volumeInfo.publishedDate;
+            var descript = response.items[i].volumeInfo.description;
+            //console.log(descript);
+            var image = response.items[i].volumeInfo.imageLinks.smallThumbnail
 
-            //variable for book IMG
-        var bookImg = $("<img>").attr("src", image).addClass("SearchImage")
+                //variable for book IMG
+            var bookImg = $("<img>").attr("src", image).addClass("SearchImage")
+            
+            
 
-        var addBtn = $("<button>");
-        addBtn.addClass("addBook");
-        addBtn.text("Add Book");
-        
+            var addBtn =$("<button>");
+            addBtn.addClass("addBook");
+            addBtn.text("Add Book");
 
-            //variable for results to HTML
-        var yourResults = $("<h6>").html(
-        "<b>Title:  </b>" + title + "<br>" +
-        "<b>Author:  </b>" + author + "<br>" +
-        "<b>Date:  </b>" + date + "<br>" +
-        "<b>Description: </b>" + descript + "<br>").append(addBtn);
-        console.log(yourResults);
-        //console.log(BookImg)
+            count++ 
 
-       
-            //sends results to results div       
-    $("#results-container").append(bookImg, yourResults);
-    
-            //this is needed or error appears thank you google :)
-    document.cookie = 'cross-site-cookie=bar; SameSite=Lax';
-    
-};
+                //variable for results to HTML
+            var yourResults = $("<div>");
+            yourResults.html("<h6>" + 
+            "<b>Title:  </b>" + title + "<br>" +
+            "<b>Author:  </b>" + author + "<br>" +
+            "<b>Date:  </b>" + date + "<br>" +
+            "<b>Description: </b>" + descript + "<br>").attr("id", count).addClass("googleResult");
+            yourResults.append(addBtn);
+            console.log(yourResults);
+            //console.log(BookImg)
+
+
+                //sends results to results div       
+            $("#results-container").append(bookImg, yourResults);
+            
+                    //this is needed or error appears thank you google :)
+            document.cookie = 'cross-site-cookie=bar; SameSite=Lax';  
+
+}; //close for the loop
+
+  //adding to Reading List 
+//   $(document).on("click", ".addBook", function ()  {
+//     console.log("click")
+//    var attrResultBook=$(".googleResult").attr("id")
+//    console.log(attrResultBook);
+//     $(".readingList").append("test")
+// });
+
+}); //close for .then
+// }//close for function searchBooks
+
+// }); //close for submit button 
+
+//   //adding to Reading List 
+  $(document.body).on("click", ".addBook", function () {
+    console.log("click")
+    console.log(this)
+    $(".readingList").append("<table>" + "<td>"+ "add book here")
 });
-}});
+
+}//close for function searchBooks
+}); //close for submit button 
 
 
-//NYT API
+    
+//NYT API - BESTSELLERS
 var mvAPI = "XrPZZH0SkeXWEk4ExM3vIM4gh2neOKwv";
 // // NYT testing API Key. the use of  "current" which means getting the latest list 
-    var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=" + mvAPI;
-    // console.log(queryURL);
+var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=" + mvAPI;
+// console.log(queryURL);
 
 
 $.ajax({
@@ -140,8 +167,11 @@ $.ajax({
 
         var infoDiv = $("<div>");
         infoDiv.html(bestSellersInfo).attr("id", "showInfo" + count);
+
         $("#best-sellers-container").append(infoDiv);
+
         $(infoDiv).addClass("infoDiv").attr("data-hid","hidden");
+
         $("#showInfo" + count).hide();
     };//for loop close 
 
@@ -161,10 +191,4 @@ $.ajax({
 }); 
 
 
-//adding to Reading List 
-$(".addBook").on("click", function(){
-    console.log("click")
-});
-
-
-});
+}); //doc.ready closure

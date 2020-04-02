@@ -20,10 +20,31 @@ form span, form label, th{
 }
 
 
-.collapsible-header {
+.collapsible-header, table {
 
     background-color: #49868C;
 }
+
+
+.readingList{
+    background-color: #49868C;
+    height: 200px;
+    overflow: scroll; 
+    overflow-x: hidden;
+
+}
+
+/*obtained from slack overflow */
+::-webkit-scrollbar {
+    border: 2px solid white;
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+/* obtained from w3 schools */
+::-webkit-scrollbar-thumb {
+    background: white; 
+  }
+
 
 .card-title {
 
