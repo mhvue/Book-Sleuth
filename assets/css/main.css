@@ -29,7 +29,7 @@ form span, form label, th{
 .readingList{
     background-color: #49868C;
     height: 200px;
-    overflow: scroll; 
+    overflow: auto; 
     overflow-x: hidden;
 
 }
