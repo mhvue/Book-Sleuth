@@ -1,8 +1,8 @@
-# project-1
+# Book Sleuth
 
 <h2> Welcome to Book Sleuth! </h2> 
 
-With so many books out there, this application will help narrow down user's book of interest by providing information about the book.  
+With so many books out there, this application can help narrow down user's book of interest by providing information about the book.  
 
 **Search for a Book**
 
@@ -22,7 +22,13 @@ New York Times offers up to date top 5 books.
 
 
 
-This application uses Firebase to store user searches. It's built with Materialize, HTML, JQuery, and CSS. This project utilizes Google Books API and New York API for information on books.  
+This application is built with Materialize, HTML, JQuery, and CSS. This project utilizes Google Books API and New York API for information on books.  
+
+How you can get started: 
+1. Fork this repository  
+2. Clone this repository on your local machine <pre><code>git clone https://github.com/mhvue/Book-Sleuth.git </code></pre>
+3. You now have access to this project files on your local machine to edit and add changes. 
+
 
 #### Group project-link to site as a group: https://brando5393.github.io/project-1
 #### Individual update: https://mhvue.github.io/Book-Sleuth/ 
