@@ -64,8 +64,11 @@ function searchBooks() {
             //console.log(descript);
             var image = response.items[i].volumeInfo.imageLinks.smallThumbnail
 
+            count++ 
+
+
                 //variable for book IMG
-            var bookImg = $("<img>").attr("src", image).addClass("SearchImage")
+            var bookImg = $("<img>").attr("src", image).addClass("SearchImage").attr("id", "bookImg"+ count)
             
             
 
@@ -73,7 +76,7 @@ function searchBooks() {
             addBtn.addClass("addBook");
             addBtn.text("Add Book");
 
-            count++ 
+            
 
                 //variable for results to HTML
             var yourResults = $("<div>");
@@ -81,9 +84,9 @@ function searchBooks() {
             "<b>Title:  </b>" + title + "<br>" +
             "<b>Author:  </b>" + author + "<br>" +
             "<b>Date:  </b>" + date + "<br>" +
-            "<b>Description: </b>" + descript + "<br>").attr("id", count).addClass("googleResult");
+            "<b>Description: </b>" + descript + "<br>").attr("id", "results" + count).addClass("googleResult");
             yourResults.append(addBtn);
-            console.log(yourResults);
+            // console.log(yourResults);
             //console.log(BookImg)
 
 
@@ -95,24 +98,22 @@ function searchBooks() {
 
 }; //close for the loop
 
-  //adding to Reading List 
-//   $(document).on("click", ".addBook", function ()  {
-//     console.log("click")
-//    var attrResultBook=$(".googleResult").attr("id")
-//    console.log(attrResultBook);
-//     $(".readingList").append("test")
-// });
 
 }); //close for .then
 // }//close for function searchBooks
 
-// }); //close for submit button 
+
 
 //   //adding to Reading List 
   $(document.body).on("click", ".addBook", function () {
     console.log("click")
     console.log(this)
-    $(".readingList").append("<table>" + "<td>"+ "add book here")
+    var grabbedBook = $(this).parent(".googleResult")
+    console.log(grabbedBook)
+    var grabbedBookImg=$(grabbedBook).siblings(".SearchImage");
+    console.log(grabbedBookImg);
+
+    $(".readingList").append(grabbedBook)
 });
 
 }//close for function searchBooks
