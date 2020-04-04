@@ -8,24 +8,22 @@ With so many books out there, this application can help narrow down user's book 
 
 User can search for a book Title and or Author by:
 1. Type in by Title and/or Author of interest.
-2. Click Search button or press Enter. 
-<p align="center"><br>
+2. Click <img src= "assets/images/search-snippet.png"> or press Enter on your keyboard.<p align="center"><br>
 <br><img src= "assets/images/search-snippet.png" width = "400"></p>
 
 3. Books will show up in the Your Results. 
 <p align="center"><br>
 <br><img src= "assets/images/results-snippet.png" width = "400"></p>
  
-4. Click Reset Fields button to search again for different book Title and/or Author.
+4. Click on <img src= "assets/images/resetBtn-snippet.png">to search again for different book Title and/or Author.
 
 
 **Refer to New York Times Bestsellers Suggestions**
 
 New York Times offers up to date top 5 books.
 1. Click the image of the books to show more information about the book. 
-2. Information shown: Summary, Author and New York Times rank of 1-5 for each book.  
-<p align="center"><br>
-<br><img src= "assets/images/bestsellers-snippet.png" width = "400"></p>
+2. Information shown: Summary, Author and New York Times rank of 1-5 for each book.<p align="center"><br>
+<br><img src= "assets/images/bestsellers-snippet.png" width = "600"></p>
 
 
 ## Technology Used
@@ -38,5 +36,5 @@ This application is built with Materialize, HTML, JQuery, and CSS. This project 
 3. You now have access to this project files on your local machine to edit and add changes. 
 
 
-## Check it out: 
- https://mhvue.github.io/Book-Sleuth/ 
+#### Check it out: 
+https://mhvue.github.io/Book-Sleuth/ 
