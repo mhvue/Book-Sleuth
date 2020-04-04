@@ -3,7 +3,7 @@
 <h2> Welcome to Book Sleuth! </h2> 
 
 With so many books out there, this application can help narrow down user's book of interest by providing information about the book. If unsure where to start, go for the New York Times top rated books instead.  
-## Check it out: https://mhvue.github.io/Book-Sleuth 
+#### Check it out: https://mhvue.github.io/Book-Sleuth 
 
 ## Table of Contents
 * [How it works](#how-it-works)
@@ -13,7 +13,7 @@ With so many books out there, this application can help narrow down user's book 
 * [Setup](#setup)
 * [Features](#features)
 * [To Do](#to-do)
-* [Inspirtation](#inspirtation)
+* [Inspiration](#inspiration)
 * [Contributors](#contributors)
 * [Status](#status)
 
@@ -62,15 +62,15 @@ Project is created with:
 3. You now have access to this project files on your local machine to edit and add changes. 
 
 ## Features:
-* Google Books API for broad search option
+* Google Books API for broader search options
 * New York Times API that is updated often to show top 5 books
 
 ## To Do:
 * Add image of book to The Reading List
 * Remove the "Add Book" button once in the Reading List
 
-## Inspirtation: 
-This project  was inspired by a team that loved to read. We wanted a simple and fast way to find books to read in fast pace life.  
+## Inspiration: 
+This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  
 
 ## Contributors: 
 This started as a project with other contributors: 
