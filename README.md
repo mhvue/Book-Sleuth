@@ -40,4 +40,4 @@ This application is built with Materialize, HTML, JQuery, and CSS. This project 
 
 
 #### Check it out: 
-<a href="https://mhvue.github.io/Book-Sleuth/" target="_blank"> 
+<a href="https://mhvue.github.io/Book-Sleuth/" target="_blank">Book Sleuth</a>
