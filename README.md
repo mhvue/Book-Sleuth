@@ -22,8 +22,11 @@ User can search for a book Title and or Author by:
 
 New York Times offers up to date top 5 books.
 1. Click the image of the books to show more information about the book. 
-2. Information shown: Summary, Author and New York Times rank of 1-5 for each book.<p align="center">
+<p align="center">
 <img src= "assets/images/bestsellers-snippet.png" width = "600"></p>
+
+2. Information shown: Summary, Author and New York Times rank of 1-5 for each book.<p align="center">
+<img src= "assets/images/bestsellers-info-snippet.png" width = "600"></p>
 
 
 ## Technology Used
@@ -37,4 +40,4 @@ This application is built with Materialize, HTML, JQuery, and CSS. This project 
 
 
 #### Check it out: 
-https://mhvue.github.io/Book-Sleuth/ 
+<a href="https://mhvue.github.io/Book-Sleuth/" target="_blank"> 
