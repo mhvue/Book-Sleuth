@@ -28,6 +28,8 @@ New York Times offers up to date top 5 books.
 2. Information shown: Summary, Author and New York Times rank of 1-5 for each book.<p align="center">
 <img src= "assets/images/bestsellers-info-snippet.png" width = "600"></p>
 
+*visit often to check out new top 5 from New York Times!* 
+
 
 ## Technology Used
 This application is built with Materialize, HTML, JQuery, and CSS. This project utilizes Google Books API and New York API for information on books.  
@@ -39,5 +41,5 @@ This application is built with Materialize, HTML, JQuery, and CSS. This project 
 3. You now have access to this project files on your local machine to edit and add changes. 
 
 
-#### Check it out: 
+## Check it out: 
 <a href="https://mhvue.github.io/Book-Sleuth/" target="_blank">Book Sleuth</a>
