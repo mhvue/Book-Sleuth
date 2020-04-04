@@ -4,12 +4,13 @@
 
 With so many books out there, this application can help narrow down user's book of interest by providing information about the book.  
 
-**Search for a Book**
+## Search for a Book 
 
 User can search for a book Title and or Author by:
-1. Type in by Title and/or Author of interest.
-2. Click  <img src= "assets/images/searchBtn-snippet.png">  or press Enter on your keyboard.<p align="center">
+1. Type in by Title and/or Author of interest.<p align="center">
 <img src= "assets/images/search-snippet.png" width = "400"></p>
+
+2. Click  <img src= "assets/images/searchBtn-snippet.png">  or press Enter on your keyboard.
 
 3. Books will show up in the Your Results. 
 <p align="center"><img src= "assets/images/results-snippet.png" width = "400"></p>
@@ -17,7 +18,7 @@ User can search for a book Title and or Author by:
 4. Click on  <img src= "assets/images/resetBtn-snippet.png">  to search again for different book Title and/or Author.
 
 
-**Refer to New York Times Bestsellers Suggestions**
+## Refer to New York Times Bestsellers Suggestions
 
 New York Times offers up to date top 5 books.
 1. Click the image of the books to show more information about the book. 
