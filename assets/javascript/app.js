@@ -22,10 +22,10 @@ function formEmpty() {
         $("#title-search").css({"background-color": "#f99603", "font-weight": "bold"});
         $("#author-search").css({"background-color": "#f99603", "font-weight": "bold"});
     }
-    else if(!searchBook && $("#author-search").val().trim()){
+    else if(!searchBook && $("#author-search").val()){
         $("#title-search, #author-search").css("background-color", "transparent");
     }
-    else if(!searchAuth && $("#title-search").val().trim()){
+    else if(!searchAuth && $("#title-search").val()){
         $("#author-search, #author-search").css("background-color", "transparent");
     }
     else{
@@ -65,18 +65,10 @@ function searchBooks() {
             var image = response.items[i].volumeInfo.imageLinks.smallThumbnail
 
             count++ 
-
-
                 //variable for book IMG
             var bookImg = $("<img>").attr("src", image).addClass("SearchImage").attr("id", "bookImg"+ count)
-            
-            
 
-            var addBtn =$("<button>");
-            addBtn.addClass("addBook");
-            addBtn.text("Add Book");
-
-            
+            var addBtn =$("<button>").addClass("addBook").text("Add Book");
 
                 //variable for results to HTML
             var yourResults = $("<div>");
@@ -84,14 +76,14 @@ function searchBooks() {
             "<b>Title:  </b>" + title + "<br>" +
             "<b>Author:  </b>" + author + "<br>" +
             "<b>Date:  </b>" + date + "<br>" +
-            "<b>Description: </b>" + descript + "<br>").attr("id", "results" + count).addClass("googleResult");
+            "<b>Description: </b>" + descript + "<br>").attr("id", "results" + count).addClass("googleResult").prepend(bookImg);
             yourResults.append(addBtn);
             // console.log(yourResults);
             //console.log(BookImg)
 
 
                 //sends results to results div       
-            $("#results-container").append(bookImg, yourResults);
+            $("#results-container").append(yourResults);
             
                     //this is needed or error appears thank you google :)
             document.cookie = 'cross-site-cookie=bar; SameSite=Lax';  
