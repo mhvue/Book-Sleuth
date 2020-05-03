@@ -62,13 +62,18 @@ function searchBooks() {
             var date = response.items[i].volumeInfo.publishedDate;
             var descript = response.items[i].volumeInfo.description;
             //console.log(descript);
-            var image = response.items[i].volumeInfo.imageLinks.smallThumbnail
+            // var image ="https://via.placeholder.com/150"
+            var image = response.items[i].volumeInfo.imageLinks.smallThumbnail;
+
+            // if(image == "undefined"){
+            //     image = "https://via.placeholder.com/150"
+            // }
 
             count++ 
                 //variable for book IMG
             var bookImg = $("<img>").attr("src", image).addClass("SearchImage").attr("id", "bookImg"+ count)
 
-            var addBtn =$("<button>").addClass("addBook").text("Add Book");
+            var addBtn =$("<button>").addClass("addBook").text("Add Book").attr("id","bookBtnNum" + count);
 
                 //variable for results to HTML
             var yourResults = $("<div>");
@@ -78,10 +83,7 @@ function searchBooks() {
             "<b>Date:  </b>" + date + "<br>" +
             "<b>Description: </b>" + descript + "<br>").attr("id", "results" + count).addClass("googleResult").prepend(bookImg);
             yourResults.append(addBtn);
-            // console.log(yourResults);
-            //console.log(BookImg)
-
-
+        
                 //sends results to results div       
             $("#results-container").append(yourResults);
             
@@ -95,17 +97,13 @@ function searchBooks() {
 // }//close for function searchBooks
 
 
-
-//   //adding to Reading List 
+//adding to Reading List 
   $(document.body).on("click", ".addBook", function () {
-    console.log("click")
-    console.log(this)
-    var grabbedBook = $(this).parent(".googleResult")
-    console.log(grabbedBook)
-    var grabbedBookImg=$(grabbedBook).siblings(".SearchImage");
-    console.log(grabbedBookImg);
 
-    $(".readingList").append(grabbedBook)
+    var btnNum= $(this).attr("id");
+    var grabbedBook = $(this).parent(".googleResult");
+    $(".readingList").append(grabbedBook);
+    $("#"+btnNum).remove()
 });
 
 }//close for function searchBooks
