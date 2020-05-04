@@ -66,8 +66,7 @@ Project is created with:
 * New York Times API that is updated often to show top 5 books
 
 ## To Do:
-* Add image of book to The Reading List
-* Remove the "Add Book" button once in the Reading List
+* Minor style to fix display of Bestsellers and images in Reading List 
 
 ## Inspiration: 
 This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  

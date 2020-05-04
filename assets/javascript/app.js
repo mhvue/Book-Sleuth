@@ -102,7 +102,7 @@ function searchBooks() {
 
     var btnNum= $(this).attr("id");
     var grabbedBook = $(this).parent(".googleResult");
-    $(".readingList").append(grabbedBook);
+    $(".readingList").append(grabbedBook).css({"margin-left": "0px"})
     $("#"+btnNum).remove()
 });
 
