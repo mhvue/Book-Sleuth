@@ -101,15 +101,12 @@ h1 {
 
 
 #reset-btn:hover{
-    font-size: 25px;
     color: whitesmoke;
-    box-shadow: 5px 10px black;
 }
 
 #submit-btn:hover{
-    font-size: 25px;
     color: whitesmoke;
-    box-shadow: 5px 10px black;
+    
 }
 
 #submit-btn{

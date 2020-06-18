@@ -61,21 +61,18 @@ function searchBooks() {
             var author = response.items[i].volumeInfo.authors;
             var date = response.items[i].volumeInfo.publishedDate;
             var descript = response.items[i].volumeInfo.description;
-            //console.log(descript);
-            // var image ="https://via.placeholder.com/150"
             var image = response.items[i].volumeInfo.imageLinks.smallThumbnail;
 
-            // if(image == "undefined"){
-            //     image = "https://via.placeholder.com/150"
-            // }
+            if(image == "undefined"){
+                image = "https://via.placeholder.com/150"
+            }
 
             count++ 
-                //variable for book IMG
+        
             var bookImg = $("<img>").attr("src", image).addClass("SearchImage").attr("id", "bookImg"+ count)
 
             var addBtn =$("<button>").addClass("addBook").text("Add Book").attr("id","bookBtnNum" + count);
 
-                //variable for results to HTML
             var yourResults = $("<div>");
             yourResults.html("<h6>" + 
             "<b>Title:  </b>" + title + "<br>" +
@@ -94,8 +91,6 @@ function searchBooks() {
 
 
 }); //close for .then
-// }//close for function searchBooks
-
 
 //adding to Reading List 
   $(document.body).on("click", ".addBook", function () {
@@ -106,8 +101,11 @@ function searchBooks() {
     $("#"+btnNum).remove()
 });
 
+
 }//close for function searchBooks
 }); //close for submit button 
+
+
 
 
     
@@ -151,8 +149,6 @@ $.ajax({
             "Synopsis: " + bookSynp + "<br>" 
              )
            
-         
-
         //displaying on html
         $("#best-sellers-container").append(booksImgHolder);
 
@@ -170,16 +166,12 @@ $.ajax({
 
 //creating on click for each book img to show info about book 
     $(".bestSellersImg").on("click", function() {
-
         $(".infoDiv").hide()
         var attrShown= $(this).attr("id");
         console.log(attrShown);
         $("#showInfo"+ attrShown).show();
-        
-        
     });
 
 }); 
 
-
-}); //doc.ready closure
+}); 
