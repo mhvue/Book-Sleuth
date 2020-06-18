@@ -152,7 +152,11 @@ h4 {
 }
 
 .SearchImage{
-    margin-left: 35%;
+    /* margin-left: 35%; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 
