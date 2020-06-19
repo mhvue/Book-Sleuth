@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     //reset button
 $("#reset-btn").on("click", function() {
     $("#title-search").css("background-color", "transparent");
@@ -92,12 +91,12 @@ function searchBooks() {
 
 }); //close for .then
 
+
 //adding to Reading List 
   $(document.body).on("click", ".addBook", function () {
-
     var btnNum= $(this).attr("id");
     var grabbedBook = $(this).parent(".googleResult");
-    $(".readingList").append(grabbedBook).css({"margin-left": "0px", "color": "white"})
+    $(".readingList").append(grabbedBook).css({"margin-left": "0px", "color": "white"});
     $("#"+btnNum).remove()
 });
 
