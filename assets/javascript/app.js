@@ -112,7 +112,6 @@ function searchBooks() {
 var mvAPI = "XrPZZH0SkeXWEk4ExM3vIM4gh2neOKwv";
 // // NYT testing API Key. the use of  "current" which means getting the latest list 
 var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=" + mvAPI;
-// console.log(queryURL);
 
 
 $.ajax({
@@ -120,16 +119,12 @@ $.ajax({
     method: "GET"
 }).then(function(response) {
 
-
-    // console.log(response.results.books);//this gives list of all info of bestsellers in an array
-    var bestsellers = response.results.books //storing bestsellers in a var
+    var bestsellers = response.results.books 
     var count=0;
 
-    // need to create a for loop that will only pull 5 random books  out of all these to show 
-    for(var j=0; j<5; j++) {
+    for(var j = 0; j < 5; j++) {
 
         var bookTitle= bestsellers[j].title;
-        // console.log(bookTitle);
         var bookAuth=bestsellers[j].author;
         var bookImg=bestsellers[j].book_image;
         var bookSynp= bestsellers[j].description;
@@ -165,11 +160,21 @@ $.ajax({
 
 //creating on click for each book img to show info about book 
     $(".bestSellersImg").on("click", function() {
-        $(".infoDiv").hide()
+        $(".infoDiv").hide();
         var attrShown= $(this).attr("id");
-        console.log(attrShown);
+        var setAttr= "#showInfo" + attrShown
         $("#showInfo"+ attrShown).show();
+
+        //this is so if same book image clicked again, it will then hide the book info
+        $("#"+attrShown).on("click", function(){
+            $(".infoDiv").hide();
+        })
+      
     });
+
+ 
+
+
 
 }); 
 
