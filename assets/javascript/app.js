@@ -162,13 +162,15 @@ $.ajax({
     $(".bestSellersImg").on("click", function() {
         $(".infoDiv").hide();
         var attrShown= $(this).attr("id");
-        var setAttr= "#showInfo" + attrShown
         $("#showInfo"+ attrShown).show();
 
         //this is so if same book image clicked again, it will then hide the book info
-        $("#"+attrShown).on("click", function(){
-            $(".infoDiv").hide();
+        $(".bestSellersImg").on("click", function(){
+            $("#showInfo"+ attrShown).hide();
         })
+    
+        //fix now it's not showing the showinfo after 3 click
+      
       
     });
 

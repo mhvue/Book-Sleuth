@@ -66,7 +66,9 @@ Project is created with:
 * New York Times API that is updated often to show top 5 books
 
 ## To Do:
-* Minor style to fix display of Bestsellers and images in Reading List 
+* Minor style to fix display of Bestsellers
+* Add save button to Bestsellers to go to Reading Lists 
+* Add the ability to display Bestseller more than once per click
 
 ## Inspiration: 
 This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  
