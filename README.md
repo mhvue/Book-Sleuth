@@ -67,7 +67,7 @@ Project is created with:
 
 ## To Do:
 * Minor style to fix display of Bestsellers
-* Add save button to Bestsellers to go to Reading Lists 
+* Add save button to Bestsellers so can add to Reading Lists 
 * Add the ability to display Bestseller more than once per click
 
 ## Inspiration: 

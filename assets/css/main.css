@@ -160,12 +160,14 @@ h4 {
 
 }
 
-
-
 p{
     text-align: center;
     color: white;
     font-style: italic;
+}
+
+.readingList{
+    padding: 15px;
 }
 
 @media screen and (max-width: 900px){

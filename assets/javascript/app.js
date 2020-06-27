@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     //reset button
 $("#reset-btn").on("click", function() {
     $("#title-search").css("background-color", "transparent");
@@ -96,7 +97,7 @@ function searchBooks() {
   $(document.body).on("click", ".addBook", function () {
     var btnNum= $(this).attr("id");
     var grabbedBook = $(this).parent(".googleResult");
-    $(".readingList").append(grabbedBook).css({"margin-left": "0px", "color": "white"});
+    $(".readingList").append("<br>", grabbedBook).css({"margin-left": "0px", "color": "white"});
     $("#"+btnNum).remove()
 });
 
@@ -104,16 +105,10 @@ function searchBooks() {
 }//close for function searchBooks
 }); //close for submit button 
 
-
-
-
-    
 //NYT API - BESTSELLERS
 var mvAPI = "XrPZZH0SkeXWEk4ExM3vIM4gh2neOKwv";
 // // NYT testing API Key. the use of  "current" which means getting the latest list 
 var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=" + mvAPI;
-
-
 $.ajax({
     url: queryURL,
     method: "GET"
@@ -134,48 +129,52 @@ $.ajax({
         count++;
         //created Img tag for  bookImg
         var booksImgHolder = $("<img>").attr("src",bookImg).attr("id", count).addClass("bestSellersImg").css("width", "100px");
-
+        var bestSellersBtn = $("<button>").text("Save").attr("id", "button" + count).addClass("bestSellersBtn")
         //all the info to be display 
         var bestSellersInfo= $("<p>").html(
             "<b>Rank " + bookRating  + "</b><br>" + 
             "Title: " + bookTitle + "<br>" + 
             "Author: " + bookAuth + "<br>"  +
             "Synopsis: " + bookSynp + "<br>" 
-             )
-           
+             );
         //displaying on html
         $("#best-sellers-container").append(booksImgHolder);
 
-        var infoDiv = $("<div>");
-        infoDiv.html(bestSellersInfo).attr("id", "showInfo" + count);
-
+        var infoDiv = $("<div>").html(bestSellersInfo).attr("id", "showInfo" + count).append(bestSellersBtn)
         $("#best-sellers-container").append(infoDiv);
-
         $(infoDiv).addClass("infoDiv").attr("data-hid","hidden");
-
         $("#showInfo" + count).hide();
     };//for loop close 
-
-
 
 //creating on click for each book img to show info about book 
     $(".bestSellersImg").on("click", function() {
         $(".infoDiv").hide();
         var attrShown= $(this).attr("id");
-        $("#showInfo"+ attrShown).show();
-
-        //this is so if same book image clicked again, it will then hide the book info
-        $(".bestSellersImg").on("click", function(){
+        var showMore= function (){
+            $("#showInfo"+ attrShown).show();
+        }
+        var hideInfo= function () {
             $("#showInfo"+ attrShown).hide();
-        })
+        }
+     
+      showMore()
     
-        //fix now it's not showing the showinfo after 3 click
-      
-      
+        
     });
 
- 
-
+    //adding best sellers to reading list ---still in progress---
+    $(document.body).on("click", ".bestSellersBtn", function () {
+        var btnNumAgain= $(this).attr("id");
+        var bestSellInfo = $(this).siblings("p");
+        //need work to add bestSellersImg
+        // var getBestSellImg= $(this).parent().parent().children("img").attr("src");
+        // console.log(getBestSellImg)
+        // $(".readingList").append("<img src=" + getBestSellImg + " " + " width='150px'>", bestSellInfo).css({"margin-left": "10px", "color": "white"});
+        $(".readingList").append(bestSellInfo).css({"margin-left": "10px", "color": "white"});
+        alert("added!")
+        $("#"+btnNumAgain).remove()
+    
+    });
 
 
 }); 
