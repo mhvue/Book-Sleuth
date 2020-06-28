@@ -152,7 +152,7 @@ h4 {
     height: 400px;
 }
 
-.SearchImage{
+.SearchImage, .savedBest{
     /* margin-left: 35%; */
     display: block;
     margin-left: auto;
@@ -168,6 +168,8 @@ p{
 
 .readingList{
     padding: 15px;
+    height: 300px;
+ 
 }
 
 @media screen and (max-width: 900px){

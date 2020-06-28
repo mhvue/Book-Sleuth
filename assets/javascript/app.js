@@ -129,7 +129,7 @@ $.ajax({
         count++;
         //created Img tag for  bookImg
         var booksImgHolder = $("<img>").attr("src",bookImg).attr("id", count).addClass("bestSellersImg").css("width", "100px");
-        var bestSellersBtn = $("<button>").text("Save").attr("id", "button" + count).addClass("bestSellersBtn")
+        var bestSellersBtn = $("<button>").text("Save").attr("id", count).addClass("bestSellersBtn")
         //all the info to be display 
         var bestSellersInfo= $("<p>").html(
             "<b>Rank " + bookRating  + "</b><br>" + 
@@ -150,6 +150,8 @@ $.ajax({
     $(".bestSellersImg").on("click", function() {
         $(".infoDiv").hide();
         var attrShown= $(this).attr("id");
+
+        //working on getting info so show and hide per click
         var showMore= function (){
             $("#showInfo"+ attrShown).show();
         }
@@ -162,17 +164,13 @@ $.ajax({
         
     });
 
-    //adding best sellers to reading list ---still in progress---
+    //adding best sellers to reading list
     $(document.body).on("click", ".bestSellersBtn", function () {
-        var btnNumAgain= $(this).attr("id");
+        var bestSellAttr= $(this).attr("id");
         var bestSellInfo = $(this).siblings("p");
-        //need work to add bestSellersImg
-        // var getBestSellImg= $(this).parent().parent().children("img").attr("src");
-        // console.log(getBestSellImg)
-        // $(".readingList").append("<img src=" + getBestSellImg + " " + " width='150px'>", bestSellInfo).css({"margin-left": "10px", "color": "white"});
-        $(".readingList").append(bestSellInfo).css({"margin-left": "10px", "color": "white"});
-        alert("added!")
-        $("#"+btnNumAgain).remove()
+        var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr).addClass("savedBest")
+        $(".readingList").append(getBestSellImg, bestSellInfo).css({"margin-left": "10px", "color": "white"});
+        $("#"+bestSellAttr).remove()
     
     });
 
