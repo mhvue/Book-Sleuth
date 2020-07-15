@@ -57,8 +57,8 @@ function searchBooks() {
             }
             count++ 
         
-            var bookImg = $("<img>").attr("src", image).addClass("SearchImage").attr("id", "bookImg"+ count)
-            var addBtn =$("<button>").addClass("addBook").text("Add Book").attr("id","bookBtnNum" + count).attr("data-add", "dataAdd")
+            var bookImg = $("<img>").attr("src", image).addClass("SearchImage").attr("id", "bookImg"+ count);
+            var addBtn =$("<button>").addClass("addBook").text("Add Book").attr("id","bookBtnNum" + count);
             var yourResults = $("<div>");
             yourResults.html("<h6>" + 
                 "<b>Title:  </b>" + title + "<br>" +
@@ -117,36 +117,30 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
         $(".bestSellersImg").on("click", function() {
             $(".infoDiv").hide();
             var attrShown= $(this).attr("id");
-            //working on getting info so show and hide per click
-                $("#showInfo"+ attrShown).show();
+            $("#showInfo"+ attrShown).show();
         });
 }); 
 
  //adding to Reading List from Google Search 
- $(document.body).on("click", ".addBook", function () {
-    var btnNum= $(this).attr("id");
-    var grabbedBook = $(this).parent(".googleResult");
-    $(".readingList").append("<br>", grabbedBook).css({"color": "white"});
-    //$("#"+btnNum).remove()
-    $("#"+btnNum).text("Delete").attr("data-delete", "deleteSaved")
+ $(document.body).on("click", ".addBook,.removeBook", function () {
+    var $this = $(this);
+    //var btnNum= $this.attr("id");
+    var grabbedBook = $this.parent(".googleResult");
+    if($this.hasClass("addBook")){
+        $(".readingList").append("<br>", grabbedBook).css({"color": "white"});
+        $this.text("Delete").removeClass("addBook").addClass("removeBook");
+    }
+    else{
+             //deleting from saved Reading list to go back to Results 
+        $("#results-container").prepend("<br>", grabbedBook).css({"color": "white"});
+        $this.text("Add Book").removeClass("removeBook").addClass("addBook");
 
-    //deleting from saved Reading list to go back to Results 
-    $(document.body).on("click","#"+btnNum, function () {
-        var newAttr = $(this).attr("data-delete")
-       // console.log(newAttr)
-
-        if(newAttr === "deleteSaved"){
-            $("#results-container").prepend("<br>", grabbedBook).css({"color": "white"});
-            $(this).removeAttr("deleteSaved");
-            console.log($(this))
-         }
-         else{
-            $(this).remove("data-delete")
-         }
-
-         });
-    
+    }
+     
     });
+
+    
+
 
 //adding to Reading List from Bestsellers
 $(document.body).on("click", ".bestSellersBtn", function () {
@@ -157,15 +151,12 @@ $(document.body).on("click", ".bestSellersBtn", function () {
     $(".readingList").append(getBestSellImg, bestSellInfo, bestSellBtn).css({"color": "white"});
     $("#"+bestSellAttr).remove();
 
-   // $("#"+bestSellAttr).text("Delete").attr("data-delete", "deletedSaved")
-
-
     //deleting from saved Reading list to go back to Results 
-    $(document.body).on("click","#"+bestSellAttr, function () {
-        // console.log("click")
-        // $("#best-sellers-container").append(getBestSellImg, bestSellInfo, bestSellBtn).css({"color": "white"});
+    // $(document.body).on("click","#"+bestSellAttr, function () {
+    //     // console.log("click")
+    //     // $("#best-sellers-container").append(getBestSellImg, bestSellInfo, bestSellBtn).css({"color": "white"});
         
-    });
+    // });
     });
 
 
