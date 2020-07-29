@@ -124,7 +124,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
  //adding to Reading List from Google Search 
  $(document.body).on("click", ".addBook,.removeBook", function () {
     var $this = $(this);
-    //var btnNum= $this.attr("id");
+    console.log($this)
     var grabbedBook = $this.parent(".googleResult");
     if($this.hasClass("addBook")){
         $(".readingList").append("<br>", grabbedBook).css({"color": "white"});
@@ -139,24 +139,28 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
      
     });
 
-    
-
-
 //adding to Reading List from Bestsellers
-$(document.body).on("click", ".bestSellersBtn", function () {
+$(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () {
     var bestSellAttr= $(this).attr("id");
     var bestSellInfo = $(this).siblings("p");
-    var bestSellBtn= $(this);
-    var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr).addClass("savedBest")
-    $(".readingList").append(getBestSellImg, bestSellInfo, bestSellBtn).css({"color": "white"});
-    $("#"+bestSellAttr).remove();
+    var $this= $(this);
+    console.log("second",$this)
+    var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr).addClass("savedBest");
 
-    //deleting from saved Reading list to go back to Results 
-    // $(document.body).on("click","#"+bestSellAttr, function () {
-    //     // console.log("click")
-    //     // $("#best-sellers-container").append(getBestSellImg, bestSellInfo, bestSellBtn).css({"color": "white"});
-        
-    // });
+ 
+    //append a copy of Bestseller book info to Reading list 
+    if($this.hasClass("bestSellersBtn")) {
+        getBestSellImg.clone().addClass("copyBestSellerImg").appendTo(".readingList");
+        bestSellInfo.clone().addClass("copyBestSellerInfo").appendTo(".readingList");
+        $this.clone().addClass("removeBestSellers").removeClass("bestSellersBtn").text("Delete").appendTo(".readingList");
+
+    }
+    else{  
+         //removed the Bestseller book from Reading list BACK to Bestseller  
+        $(".copyBestSellerImg, .copyBestSellerInfo, .removeBestSellers").remove();
+
+    }
+   
     });
 
 
