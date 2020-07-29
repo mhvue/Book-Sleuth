@@ -144,20 +144,20 @@ $(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () 
     var bestSellAttr= $(this).attr("id");
     var bestSellInfo = $(this).siblings("p");
     var $this= $(this);
-    console.log("second",$this)
-    var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr).addClass("savedBest");
+    var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr);
 
  
     //append a copy of Bestseller book info to Reading list 
     if($this.hasClass("bestSellersBtn")) {
-        getBestSellImg.clone().addClass("copyBestSellerImg").appendTo(".readingList");
-        bestSellInfo.clone().addClass("copyBestSellerInfo").appendTo(".readingList");
+        getBestSellImg.clone().addClass("copyBestSellerImg").removeAttr("id").appendTo(".readingList");
+        bestSellInfo.clone().addClass("copyBestSellerInfo").removeAttr("id").appendTo(".readingList");
         $this.clone().addClass("removeBestSellers").removeClass("bestSellersBtn").text("Delete").appendTo(".readingList");
 
     }
     else{  
          //removed the Bestseller book from Reading list BACK to Bestseller  
         $(".copyBestSellerImg, .copyBestSellerInfo, .removeBestSellers").remove();
+        $this.addClass("bestSellersBtn");
 
     }
    
