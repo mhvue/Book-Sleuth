@@ -3,7 +3,7 @@ $(document).ready(function(){
 $("#reset-btn").on("click", function() {
     $("#title-search").css("background-color", "transparent");
     $("#author-search").css("background-color", "transparent");
-    $("#results-container").empty();
+    $("#results-container").empty().html("<p>No Search Result Yet </p>");
 });
     // Submit function for search
 $("#submit-btn").click(function(event) {
@@ -109,7 +109,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
             $("#best-sellers-container").append(booksImgHolder);
             var infoDiv = $("<div>").html(bestSellersInfo).attr("id", "showInfo" + count).append(bestSellersBtn)
             $("#best-sellers-container").append(infoDiv);
-            $(infoDiv).addClass("infoDiv").attr("data-hid","hidden");
+            $(infoDiv).addClass("infoDiv");
             $("#showInfo" + count).hide();
         };//for loop close 
 
@@ -123,6 +123,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
 
  //adding to Reading List from Google Search 
  $(document.body).on("click", ".addBook,.removeBook", function () {
+    $("#noneMsg").remove();
     var $this = $(this);
     console.log($this)
     var grabbedBook = $this.parent(".googleResult");
@@ -137,10 +138,11 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
 
     }
      
-    });
+});
 
 //adding to Reading List from Bestsellers
 $(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () {
+    $("#noneMsg").remove();
     var bestSellAttr= $(this).attr("id");
     var bestSellInfo = $(this).siblings("p");
     var $this= $(this);
@@ -161,7 +163,7 @@ $(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () 
 
     }
    
-    });
+});
 
 
 }); 

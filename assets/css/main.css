@@ -160,7 +160,7 @@ h4 {
 
 }
 
-p{
+p, #noneMsg{
     text-align: center;
     color: white;
     font-style: italic;
