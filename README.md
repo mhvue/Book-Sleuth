@@ -66,7 +66,7 @@ Project is created with:
 * New York Times API that is updated often to show top 5 books
 
 ## To Do:
-* Minor style to fix display information about Bestsellers 
+* Needs work on being mobile friendly 
 
 ## Inspiration: 
 This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  

@@ -172,6 +172,8 @@ p{
  
 }
 
+/*work on add css to make app mobile friendly */
+
 @media screen and (max-width: 900px){
     #submit-btn, #reset-btn{
         left: 35%
