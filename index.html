@@ -56,7 +56,7 @@
             <hr>
             <form action="#" method="get" id="search-form">
               <div class="form-group">
-                <label for="title-search">Title:</label>
+                <label for="title-search" id="title">Title:</label>
                 <input type="text" name="title-search-box" id="title-search" aria-describedby="titleHelp"
                   placeholder="Please enter a book title."/>
               
@@ -88,20 +88,24 @@
     </div>
     <!-- reading list -->
     <div class="row">
-      <div class="col-12">
-        <ul class="collapsible"> 
-          <li>
-            <div class="collapsible-header"><i class="large material-icons">arrow_drop_down_circle</i><span>
-            <p>Your Reading List</p>
+      <div class="col-12 readingListHolder">
+        <!-- <ul class="collapsible"> 
+          <li> -->
+            <div class="collapsible-header">
+              <span>Your Reading List</span>
             </div>
+            <hr>
             <div class="readingList">
               <p id="noneMsg">Nothing Saved Yet</p>
             </div> 
-          </li> 
-        </ul>
+          <!-- </li> 
+        </ul> -->
       </div>
     </div>
-
   </div>
+
+  <footer>
+    footer here
+  </footer>
 </body>
 </html>
