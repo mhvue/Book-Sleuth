@@ -48,7 +48,7 @@ New York Times offers up to date top 5 books.
 
 ## Technologies
 Project is created with: 
-* Materialize
+* Bootstrap
 * HTML
 * JQuery
 * CSS
