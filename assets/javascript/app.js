@@ -148,18 +148,18 @@ $(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () 
     var $this= $(this);
     var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr);
 
- 
-    //append a copy of Bestseller book info to Reading list 
+
+    //append a copy of Bestseller book info to Reading list //need to add option to avoid duplication 
     if($this.hasClass("bestSellersBtn")) {
+        $(".saveModal").modal("toggle");
         getBestSellImg.clone().addClass("copyBestSellerImg").removeAttr("id").appendTo(".readingList");
         bestSellInfo.clone().addClass("copyBestSellerInfo").removeAttr("id").appendTo(".readingList");
-        $this.clone().addClass("removeBestSellers").removeClass("bestSellersBtn").text("Delete").appendTo(".readingList");
-
+        $this.clone().removeClass("bestSellersBtn").addClass("removeBestSellers").text("Delete").appendTo(".readingList");
     }
     else{  
          //removed the Bestseller book from Reading list BACK to Bestseller  
         $(".copyBestSellerImg, .copyBestSellerInfo, .removeBestSellers").remove();
-        $this.addClass("bestSellersBtn");
+        $this.addClass("bestSellersBtn").removeClass("removeBestSellers");
 
     }
    

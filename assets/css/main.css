@@ -186,7 +186,7 @@ footer{
 
 /*work on add css to make app mobile friendly */
 
-@media screen and (max-width: 900px){
+/* @media screen and (max-width: 900px){
     #submit-btn, #reset-btn{
         left: 35%
     }
@@ -202,4 +202,4 @@ footer{
         font-size: 18px;
         margin-bottom: 5px;
     }
-}
+} */
