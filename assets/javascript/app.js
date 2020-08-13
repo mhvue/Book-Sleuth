@@ -35,7 +35,6 @@ searchBooks();//need this here for the formEmpty (if) to work once user inputs a
 function searchBooks() {
         // Google Books URL
     var queryURL = "https://www.googleapis.com/books/v1/volumes?api_key=AIzaSyC_kBKxX1bOeYZ9z3Itd5x86QwbLL-uS_8&q=" + searchBook + searchAuth
-    //console.log(queryURL)
         // Ajax for Google Books
    $.ajax({
         url: queryURL,
@@ -128,6 +127,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
     console.log($this)
     var grabbedBook = $this.parent(".googleResult");
     if($this.hasClass("addBook")){
+        $(".saveModal").modal("toggle");
         $(".readingList").append("<br>", grabbedBook).css({"color": "white"});
         $this.text("Delete").removeClass("addBook").addClass("removeBook");
     }
@@ -147,20 +147,27 @@ $(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () 
     var bestSellInfo = $(this).siblings("p");
     var $this= $(this);
     var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr);
+    
 
+// avoid duplication of BestSellers in Readling List
+    if($this.attr("dataSaved")){
+        $(".duplicateSaveModal").modal("toggle")
+        return;
+    }
 
-    //append a copy of Bestseller book info to Reading list //need to add option to avoid duplication 
+    //append a copy of Bestseller book info to Reading list
     if($this.hasClass("bestSellersBtn")) {
         $(".saveModal").modal("toggle");
         getBestSellImg.clone().addClass("copyBestSellerImg").removeAttr("id").appendTo(".readingList");
         bestSellInfo.clone().addClass("copyBestSellerInfo").removeAttr("id").appendTo(".readingList");
-        $this.clone().removeClass("bestSellersBtn").addClass("removeBestSellers").text("Delete").appendTo(".readingList");
+        $this.clone().removeClass("bestSellersBtn").addClass("removeBestSellers").text("Delete").appendTo(".readingList")
+        $this.text("Saved").attr("dataSaved", "nowSaved");
     }
+   
     else{  
          //removed the Bestseller book from Reading list BACK to Bestseller  
         $(".copyBestSellerImg, .copyBestSellerInfo, .removeBestSellers").remove();
-        $this.addClass("bestSellersBtn").removeClass("removeBestSellers");
-
+        $this.addClass("bestSellersBtn").removeClass("removeBestSellers"); 
     }
    
 });
