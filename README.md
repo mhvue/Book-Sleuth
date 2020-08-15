@@ -68,6 +68,7 @@ Project is created with:
 ## To Do:
 * Currently, converting application to Bootstrap 8/9/20
 * Needs work on being mobile friendly 
+* Have email functionality so users can email list of saved books
 
 ## Inspiration: 
 This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  

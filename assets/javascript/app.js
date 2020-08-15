@@ -96,7 +96,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
             count++;
             //created Img tag for  bookImg
             var booksImgHolder = $("<img>").attr("src",bookImg).attr("id", count).addClass("bestSellersImg").css("width", "100px");
-            var bestSellersBtn = $("<button>").text("Save").attr("id", count).addClass("bestSellersBtn")
+            var bestSellersBtn = $("<button>").text("Save").attr("id", count).addClass("bestSellersBtn").attr("data-notsaved","notSaved");
             //all the info to be display 
             var bestSellersInfo= $("<p>").html(
                 "<b>Rank " + bookRating  + "</b><br>" + 
@@ -143,7 +143,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
 });
 
 //adding to Reading List from Bestsellers
-$(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () {
+$(document.body).on("click", ".bestSellersBtn, .copyRemoveBestSellers", function () {
     $("#noneMsg").remove();
     var bestSellAttr= $(this).attr("id");
     var bestSellInfo = $(this).siblings("p");
@@ -151,28 +151,26 @@ $(document.body).on("click", ".bestSellersBtn, .removeBestSellers", function () 
     var getBestSellImg= $("#"+ bestSellAttr).parent().parent().find("#" + bestSellAttr);
     
     //avoid duplication of BestSellers in Readling List
-    if($this.attr("data-Saved")){
+    if($this.attr("data-saved")){
         $(".duplicateSaveModal").modal("toggle")
         return;
     }
 
     //append a copy of Bestseller book info to Reading list
-    if($this.hasClass("bestSellersBtn")) {
+    else if($this.hasClass("bestSellersBtn")) {
         $(".saveModal").modal("toggle");
         getBestSellImg.clone().addClass("copyBestSellerImg").removeAttr("id").appendTo(".readingList");
         bestSellInfo.clone().addClass("copyBestSellerInfo").removeAttr("id").appendTo(".readingList");
-        $this.clone().removeClass("bestSellersBtn").addClass("removeBestSellers").text("Delete").appendTo(".readingList").removeAttr("id")
-        $this.text("Saved!").attr("data-Saved", "nowSaved").attr("data-NotSaved", "notSaved");
+        $this.clone().removeClass("bestSellersBtn").addClass("copyRemoveBestSellers").text("Delete").appendTo(".readingList").removeAttr("id");
+        $this.text("Saved!").attr("data-saved","nowSaved").removeAttr("data-notsaved", "notSaved").addClass("removeSaved")
     }
 
    //removed the Bestseller book from Reading list BACK to Bestseller  
     else{  
-        $(".copyBestSellerImg, .copyBestSellerInfo, .removeBestSellers").remove();
-        //$this.addClass("bestSellersBtn").removeClass("removeBestSellers")
+        $(".removeSaved").text("Save").removeAttr("data-saved").attr("data-notsaved","notSaved");
+        $(".copyBestSellerImg, .copyBestSellerInfo, .copyRemoveBestSellers").remove();//this removes all the clones
     }
-   
-    //need to add option to add bestseller book back to reading list after deleting it  ex; if user deletes by accident and want to add back to reading list
-});
+    });
 
 
 }); 
