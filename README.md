@@ -66,8 +66,6 @@ Project is created with:
 * New York Times API that is updated often to show top 5 books
 
 ## To Do:
-* Currently, converting application to Bootstrap 8/9/20
-* Needs work on being mobile friendly 
 * Have email functionality so users can email list of saved books
 
 ## Inspiration: 
