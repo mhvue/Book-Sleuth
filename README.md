@@ -67,6 +67,8 @@ Project is created with:
 
 ## To Do:
 * Have email functionality so users can email list of saved books
+* Update ReadMe -out of date as of 10/18/20 
+* Troubleshoot font color change once book added back to Search Results 
 
 ## Inspiration: 
 This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  
