@@ -69,6 +69,7 @@ Project is created with:
 * Have email functionality so users can email list of saved books
 * Update ReadMe -out of date as of 10/18/20 
 * Troubleshoot font color change once book added back to Search Results 
+* Fix bug with deleting Saved bestsellers as it deletes all bestsellers in saved, no a specific book
 
 ## Inspiration: 
 This project  was inspired by a team that loves to read. We wanted a simple and fast way to find books to read in fast pace life.  
