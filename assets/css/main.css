@@ -179,8 +179,11 @@ p, #noneMsg{
  
 }
 
+#contactMe{
+    color: black;
+}
+
 footer{
-    background-color: #f99603;
     margin-top: 10px;
     padding: 5px;
 }
