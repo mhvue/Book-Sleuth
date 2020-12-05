@@ -101,11 +101,11 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
             var bestSellersBtn = $("<button>").text("Save").attr("id", count).addClass("bestSellersBtn").attr("data-notsaved","notSaved");
             //all the info to be display 
             var bestSellersInfo= $("<p>").html(
-                "<b>Rank " + bookRating  + "</b><br>" + 
-                "Title: " + bookTitle + "<br>" + 
-                "Author: " + bookAuth + "<br>"  +
-                "Synopsis: " + bookSynp + "<br>" 
-                );
+                    "<b>Rank " + bookRating  + "</b><br>" + 
+                    "Title: " + bookTitle + "<br>" + 
+                    "Author: " + bookAuth + "<br>"  +
+                    "Synopsis: " + bookSynp + "<br>");
+               
             //displaying on html
             $("#best-sellers-container").append(booksImgHolder);
             var infoDiv = $("<div>").html(bestSellersInfo).attr("id", "showInfo" + count).append(bestSellersBtn)
@@ -161,7 +161,7 @@ $(document.body).on("click", ".bestSellersBtn, .copyRemoveBestSellers", function
     else if($this.hasClass("bestSellersBtn")) {
         $(".saveModal").modal("toggle");
         getBestSellImg.clone().addClass("copyBestSellerImg").removeAttr("id").appendTo(".readingList");
-        bestSellInfo.clone().addClass("copyBestSellerInfo").removeAttr("id").appendTo(".readingList");
+        bestSellInfo.clone().addClass("copyBestSellerInfo")removeAttr("id").appendTo(".readingList").attr("id","cloneInfo" + bestSellAttr)
         $this.clone().removeClass("bestSellersBtn").addClass("copyRemoveBestSellers").text("Delete").appendTo(".readingList").removeAttr("id");
         $this.text("Saved!").attr("data-saved","nowSaved").removeAttr("data-notsaved", "notSaved").addClass("removeSaved")
     }
@@ -169,9 +169,11 @@ $(document.body).on("click", ".bestSellersBtn, .copyRemoveBestSellers", function
    //removed the Bestseller book from Reading list BACK to Bestseller  
     else{  
         $(".removeSaved").text("Save").removeAttr("data-saved").attr("data-notsaved","notSaved");
-        $(".copyBestSellerImg, .copyBestSellerInfo, .copyRemoveBestSellers").remove();//this removes all the clones
+         $(".copyBestSellerImg, .copyBestSellerInfo, .copyRemoveBestSellers").remove();//this removes all the clones
+        $(".copyBestSellerImg,.copyRemoveBestSellers").remove();
+       // $("#cloneInfo"+bestSellAttr).remove() //trying to get this to work so it deltes info on that specific book only
     }
-    });
+});
 
 
 }); 

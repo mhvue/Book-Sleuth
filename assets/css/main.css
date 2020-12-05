@@ -24,8 +24,6 @@ form span, form label, th{
 }
 
 .readingList{
-    /* background-color: #49868C; */
-    /* height: 200px; */
     border: 0px;
     overflow: auto; 
     overflow-x: hidden;
@@ -139,9 +137,7 @@ h4 {
 
 }
 
-
 #best-sellers-container {
-
     text-align: center;
 }
 #results-container{
@@ -163,7 +159,6 @@ h4 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 p, #noneMsg{
