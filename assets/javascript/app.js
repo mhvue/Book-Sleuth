@@ -84,7 +84,9 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
         url: queryURL,
         method: "GET"
     }).then(function(response) {
+        console.log(response)
         var bestsellers = response.results.books 
+        //console.log(bestsellers)
         var count=0;
 
         for(var j = 0; j < 5; j++) {
@@ -120,14 +122,13 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
         });
 }); 
 
- // adding on click to Reading List from Google Search Results 
+//add book from Google Search Results  to Reading list 
  $(document.body).on("click", ".addBook,.removeBook", function () {
     $("#noneMsg").remove();
     var $this = $(this);
     console.log($this)
     var grabbedBook = $this.parent(".googleResult");
 
-    //add book from Google Search Results  to Reading list 
     if($this.hasClass("addBook")){
         $(".saveModal").modal("toggle");
         $(".readingList").append("<br>", grabbedBook).css({"color": "white"});
@@ -135,7 +136,7 @@ var queryURL="https://api.nytimes.com/svc/books/v3/lists/current/hardcover-ficti
     }
      //deleting from saved Reading list to go back to Google Search Results 
     else{
-        $("#results-container").prepend("<br>", grabbedBook).css({"color": "white"});
+        $("#results-container").prepend("<br>", grabbedBook);
         $this.text("Add Book").removeClass("removeBook").addClass("addBook");
 
     }
