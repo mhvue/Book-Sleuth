@@ -161,7 +161,7 @@ $(document.body).on("click", ".bestSellersBtn, .copyRemoveBestSellers", function
     else if($this.hasClass("bestSellersBtn")) {
         $(".saveModal").modal("toggle");
         getBestSellImg.clone().addClass("copyBestSellerImg").removeAttr("id").appendTo(".readingList");
-        bestSellInfo.clone().addClass("copyBestSellerInfo")removeAttr("id").appendTo(".readingList").attr("id","cloneInfo" + bestSellAttr)
+        bestSellInfo.clone().addClass("copyBestSellerInfo").removeAttr("id").appendTo(".readingList").attr("id","cloneInfo" + bestSellAttr)
         $this.clone().removeClass("bestSellersBtn").addClass("copyRemoveBestSellers").text("Delete").appendTo(".readingList").removeAttr("id");
         $this.text("Saved!").attr("data-saved","nowSaved").removeAttr("data-notsaved", "notSaved").addClass("removeSaved")
     }
